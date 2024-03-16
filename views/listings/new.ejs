@@ -1,19 +1,43 @@
 <% layout("/layouts/boilerplate") %>
 <body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br /><br />
     <h3>Create a new Listing</h3>
     <form method="POST" action="/listings">
-        <input name="listing[title]" placeholder="Enter Title" type="text" />
+        <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" placeholder="Enter a Catchy Title" type="text" class="form-control"/>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" type="text" class="form-control"></textarea>
+        </div>
+        
+        <div class="mb-3">
+            <label for="image" class="form-label">Image Link</label>
+            <input name="listing[image]" placeholder="Enter URL/LINK" type="text" class="form-control" />
+        </div>
+        <div class="row">
+            <div class="mb-3 col-md-4">
+                <label for="Enter Price" class="form-label">Enter Price</label>
+                <input name="listing[price]" placeholder="Enter price" type="number" class="form-control" />
+            </div>
+            
+            <div class="mb-3 col-md-8">
+                <label for="Enter country" class="form-label">Enter country</label>
+                <input name="listing[country]" placeholder="India" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="Enter location" class="form-label">Enter location</label>
+            <input name="listing[location]" placeholder="Kolkata, West Bengal" type="text" class="form-control" />
+        </div>
+        <br />
+        <button class="btn btn-dark add-btn">Add</button>
         <br /><br />
-        <textarea name="listing[description]" placeholder="Enter description" type="text"></textarea>
-        <br /><br />
-        <input name="listing[image]" placeholder="Enter URL/LINK" type="text" />
-        <br /><br />
-        <input name="listing[price]" placeholder="Enter price" type="number" />
-        <br /><br />
-        <input name="listing[country]" placeholder="Enter country" type="text" />
-        <br /><br />
-        <input name="listing[location]" placeholder="Enter location" type="text" />
-        <br /><br />
-        <button>Add</button>
     </form>
+    </div>
+    </div>
 </body>
