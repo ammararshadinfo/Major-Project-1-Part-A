@@ -1,4 +1,4 @@
-if(process.env.NODE_ENV != "production"){
+if (process.env.NODE_ENV != "production") {
   require("dotenv").config();
 }
 
@@ -9,7 +9,8 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+//const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+const db_Url = process.env.ATLASDB_URL;
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const session = require("express-session");
@@ -23,7 +24,7 @@ const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 const { getMaxListeners } = require("events");
 async function main() {
-  await mongoose.connect(MONGO_URL);
+  await mongoose.connect(db_Url);
 }
 app.use(express.json());
 main()
@@ -52,9 +53,9 @@ const sessionOptions = {
   },
 };
 
-app.get("/", (req, res) => {
-  res.send("Hi I am Root");
-});
+// app.get("/", (req, res) => {
+//   res.send("Hi I am Root");
+// });
 
 app.use(session(sessionOptions));
 app.use(flash());

@@ -30,6 +30,10 @@ const listingSchema = new Schema({
       required: true,
     },
   },
+  // category:{
+  //   type:String,
+  //   enum:["mountains","rooms","farms","arctic","deserts"]
+  // }
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {
